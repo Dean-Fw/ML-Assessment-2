@@ -1,17 +1,29 @@
+import math
 
-y = [1, 0, 0, 0, 1, 2, 1, 1, 2, 1]
+x1 = [4.2, 3.6, 1.0]
+x2 = [5.7, 2.8, -1.5]
 
-classTotals = {}
-for i in range(len(y)):
-    if y[i] not in classTotals:
-        classTotals[y[i]] = 1
+x1Sum = None
+x2Sum = None
+
+for i in range(len(x1)):
+    if not x1Sum:
+        x1Sum = x1[i]
     else:
-        classTotals[y[i]] += 1
+        x1Sum -= x1[i]
 
-print(f"Class Totals: {classTotals}")
+x1Sum = x1Sum ** 2
 
-classProbs = {}
-for i in classTotals:
-    classProbs[i] = classTotals[i] / len(y)
+for i in range(len(x2)):
+    if not x2Sum:
+        x2Sum = x2[i]
+    else:
+        x2Sum -= x2[i]
 
-print(classProbs)
+x2Sum = x2Sum ** 2
+
+total = x1Sum + x2Sum
+total = math.sqrt(total)
+euclideanDistance = total
+
+print (euclideanDistance)
